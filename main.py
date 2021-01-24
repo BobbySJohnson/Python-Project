@@ -9,3 +9,4 @@ with open('index.html', 'r') as f:
     print(soup.h2)
     print(soup.head)
     print(soup.li)
+    print(soup.h1) #The heading
