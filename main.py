@@ -1,12 +1,19 @@
+# Importing important libraries
+import requests
 from bs4 import BeautifulSoup
 
-with open('index.html', 'r') as f:
 
-    contents = f.read()
+# Code
 
-    soup = BeautifulSoup(contents, 'lxml')
 
-    print(soup.h2)
-    print(soup.head)
-    print(soup.li)
-    print(soup.h1) #The heading
+# Initializing
+soup = BeautifulSoup(
+    requests.get("https://distrowatch.com/").content,
+    "html.parser")
+
+
+# Core Component
+top_ten_distros = []
+distro_tds = soup("td", class_="phr2", limit=10)
+for td in distro_tds:
+    top_ten_distros.append(td.find("a").contents[0])
