@@ -1,8 +1,8 @@
 name: Auto Commit Test
 
-on:
-  schedule:
-    - cron:  '0 * * * *'
+#on:
+#  schedule:
+#    - cron:  '0 * * * *'
 
 jobs:
   node-docker:
