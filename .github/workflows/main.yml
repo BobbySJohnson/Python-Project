@@ -19,6 +19,7 @@ jobs:
              git config --global user.email "BOBBYS.JOHNSON@student.csn.edu"
              sleep 7
              git config credential.helper '!f() { sleep 1; echo "username=${GIT_USER}"; echo "password=${GIT_PASSWORD}"; }; f'
+             git branch -m main
              sleep 12
              git add .
              sleep 9
