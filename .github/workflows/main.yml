@@ -8,21 +8,25 @@ jobs:
       image: ubuntu:18.04
     steps:
          - name: Git Auto Commit
+           env:
+             GIT_USER: ${{ secrets.GIT_USER }}
+             GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
            run: |
              apt update && apt install git -y
              git clone https://github.com/BobbySJohnson/Python-Project.git
-             sleep 5
+             sleep 4
              cd Python-Project
-             sleep 7
+             sleep 3
              echo "Done at ==> $(date)" >> required.txt
-             sleep 11
+             sleep 3
              git config --global user.email "BOBBYS.JOHNSON@student.csn.edu"
-             sleep 7
+             sleep 4
              git config credential.helper '!f() { sleep 1; echo "username=${GIT_USER}"; echo "password=${GIT_PASSWORD}"; }; f'
+             sleep 2
              git branch -m main
-             sleep 12
+             sleep 2
              git add .
-             sleep 9
+             sleep 3
              git commit -am "Adding new Changes"
-             sleep 11
+             sleep 5
              git push origin main
