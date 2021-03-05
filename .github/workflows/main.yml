@@ -1,5 +1,8 @@
-name: Auto Commit
-on: push
+name: Auto Commit Test
+
+on:
+  schedule:
+    - cron:  '0 * * * *'
 
 jobs:
   node-docker:
@@ -7,7 +10,7 @@ jobs:
     container:
       image: ubuntu:18.04
     steps:
-         - name: Git Auto Commit
+         - name: Git Auto Commit TEST
            env:
              GIT_USER: ${{ secrets.GIT_USER }}
              GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
