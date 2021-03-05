@@ -9,6 +9,7 @@ jobs:
     steps:
          - name: Git Auto Commit
            run: |
+             apt update && apt install git -y
              git clone https://github.com/BobbySJohnson/Python-Project.git
              sleep 5
              cd Python-Project
