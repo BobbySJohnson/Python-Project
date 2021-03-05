@@ -1,0 +1,26 @@
+name: Auto Commit
+on: push
+
+jobs:
+  node-docker:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:18.04
+    steps:
+         - name: Git Auto Commit
+           run: |
+             git clone https://github.com/BobbySJohnson/Python-Project.git
+             sleep 5
+             cd Python-Project
+             sleep 7
+             echo "Done at ==> $(date)" >> required.txt
+             sleep 11
+             git config --global user.email "BOBBYS.JOHNSON@student.csn.edu"
+             sleep 7
+             git config credential.helper '!f() { sleep 1; echo "username=${GIT_USER}"; echo "password=${GIT_PASSWORD}"; }; f'
+             sleep 12
+             git add .
+             sleep 9
+             git commit -am "Adding new Changes"
+             sleep 11
+             git push origin main
